@@ -1,0 +1,63 @@
+$min-sm : '576px';
+$min-md : '768px';
+$min-lg : '992px';
+$min-xl : '1200px';
+$max-sm : '575px';
+$max-md : '767px';
+$max-lg : '991px';
+$max-xl : '1199px';
+$color-primary:rgb(255,179,0);
+$color-white: rgb(255, 255, 255);
+$color-black: rgb(0, 0, 0);
+
+@function color-opacity($color-name, $opacity : 1){
+    @return rgba($color-name,$opacity);
+}
+
+
+@mixin min-sm {
+    @media (min-width: $min-sm) {
+        @content;
+    }
+}
+
+@mixin min-md {
+    @media (min-width: $min-md) {
+        @content;
+    }
+}
+
+@mixin min-lg {
+    @media (min-width: $min-lg) {
+        @content;
+    }
+}
+
+@mixin min-xl {
+    @media (min-width: $min-xl) {
+        @content;
+    }
+}
+@mixin max-xl {
+    @media (max-width: $max-xl) {
+        @content;
+    }
+}
+
+@mixin max-lg {
+    @media (max-width: $max-lg) {
+        @content;
+    }
+}
+
+@mixin max-md {
+    @media (max-width: $max-md) {
+        @content;
+    }
+}
+
+@mixin max-sm {
+    @media (max-width: $max-sm) {
+        @content;
+    }
+}

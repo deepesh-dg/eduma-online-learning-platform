@@ -1,0 +1,62 @@
+.default-btn{
+    @extend .default-transition;
+    border: none;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    overflow: hidden;
+    z-index: 1;
+    color: $color-white;
+    background-color: $color-primary;
+    border-radius: 5px;
+    padding: 12px 25px 12px 50px;
+
+    font: {
+        weight: 700;
+        size: 16px;
+    }
+
+    i {
+        position: absolute;
+        left: 25px;
+        top: 52%;
+        transform: translateY(-50%);
+        font-weight: 700;
+        font-size: 16.5px;
+
+        @include max-sm{
+            left : 19px;
+        }
+
+    }
+
+    &::before{
+        position: absolute;
+        display: block;
+        content: "";
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border-radius: 5px;
+        background-color: lighten($color-primary, 10%);
+        transition: all 500ms ease-in-out;
+        z-index: -1;
+    }
+
+    &:hover{
+        color: $color-white;
+        transform: translateY(-10%);
+
+        &::before{
+            width: 225%;
+            height: 300px;
+        }
+
+    }
+
+    @include max-sm{
+        padding: 8px 20px 8px 40px;
+    }
+    
+}

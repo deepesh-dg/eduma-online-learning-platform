@@ -1,0 +1,715 @@
+@import 'variables';
+@import 'default';
+@import 'header';
+@import 'btn';
+
+#front-image{
+
+    .carousel{
+        overflow: hidden;
+
+        .carousel-control-prev {
+            @extend .default-transition;
+            top: 50%;
+            bottom: unset;
+
+            @include min-xl{
+                transform: translate3d(-200px, 0, 0);
+            }
+        }
+
+        .carousel-control-next {
+            @extend .default-transition;
+            top: 50%;
+            bottom: unset;
+
+            @include min-xl{
+                transform: translate3d(200px, 0, 0);
+            }
+        }
+
+        .carousel-image{
+            min-height: 400px;
+
+            background : {
+                position: center;
+                size: cover;
+            }
+
+            @include max-sm{
+                min-height: 350px;
+            }
+        }
+
+        .carousel-caption{
+            @extend .default-transition;
+            bottom: unset;
+            top: 20%;
+            text-align: left;
+            overflow: hidden;
+            opacity: 0;
+            transform: scale3d(0.1, 0.1, 0.1) translate3d(1000px, 0, 0);
+
+            h2 {
+                font-weight: 800;
+                font-size: 30px;
+
+                @include min-sm{
+                    font-size: 50px;
+                }
+
+                @include min-md{
+                    font-size: 75px;
+                }
+
+                @include min-lg{
+                    font-size: 100px;
+                }
+            }
+
+            h3 {
+                font-size: 14px;
+                font-weight: 700;
+
+                @include min-sm {
+                    font-size: 24px;
+                }
+
+                @include min-md{
+                    font-size: 30px;
+                }
+
+                @include min-lg{
+                    font-size: 32px;
+                }
+            }
+
+            @include max-sm{
+                top:30%;
+            }
+        }
+
+        .carousel-item.active{
+
+            .carousel-caption{
+                opacity: 1;
+                transform: scale3d(1, 1, 1) translate3d(-0, 0, 0);
+            }
+        }
+
+        .carousel-control-btn {
+            width: 100px;
+            height: 100px;
+            background-color: color-opacity(rgb(182, 182, 182), 0.3);
+            display: flex;
+            border-radius: 50%;
+
+            @include max-md{
+                width: 75px;
+                height: 75px;
+            }
+
+            @include max-sm{
+                width: 50px;
+                height: 50px;
+            }
+        }   
+    }
+
+    .wrapper-content {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+    }
+
+    .wrapper-box {
+        background-color: color-opacity(black,0.5);
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    @include min-xl{
+
+        &:hover{
+
+            .carousel{
+
+                .carousel-control-prev{
+                    transform: translate3d(0, 0, 0);
+                }
+
+                .carousel-control-next{
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+        }
+    }
+}
+
+#courses{
+    position: relative;
+
+    .courses-box {
+        @extend .default-transition;
+        margin-bottom: 24px;
+        box-shadow: 7px 4px 18px color-opacity(black, 0.08);
+
+        .courses-box-img{
+
+            .img-fluid{
+
+                @include max-md{
+                    width: 100%;
+                }
+            }
+        }
+
+        .courses-box-content {
+            position: relative;
+            padding: 20px 20px 30px;
+            overflow: hidden;
+
+            p{
+                @extend .default-transition;
+                margin-bottom: 0.5rem;
+            }
+
+            .default-btn{
+
+                i{
+                    @extend .default-transition;
+                }
+            }
+
+            &::before{
+                @extend .default-transition;
+                position: absolute;
+                content: "";
+                bottom: 0;
+                left: 0;
+                width: 0%;
+                height: 0%;
+                z-index: -2;
+                background-color: color-opacity($color-primary, 0.76);
+            }
+
+            &::after{
+                @extend .default-transition;
+                position: absolute;
+                content: "";
+                top: 0;
+                right: 0;
+                width: 0%;
+                height: 0%;
+                z-index: -2;
+                background-color: color-opacity($color-primary, 0.76);
+            }
+
+            .courses-box-bg-img1 {
+                position: absolute;
+                right: 0;
+                top: 0;
+                z-index: -1;
+            }
+
+            .courses-box-bg-img2 {
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: -1;
+                opacity: 0.3;
+            }
+        }
+
+        &:hover{
+            transform: scale(1.05);
+            color: $color-white;
+
+            p {
+                color: color-opacity(white, 0.7) !important;
+            }
+
+            .courses-box-content{
+                &::before{
+                    width: 100%;
+                    height: 100%;
+                }
+
+                &::after{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .default-btn {
+                color: $color-white;
+                background-color: rgb(103, 24, 168);
+                padding: 12px 50px 12px 25px;
+
+                @include max-sm{
+                    padding: 8px 40px 8px 20px;
+                }
+
+                &::before{
+                    display: none;
+                }
+
+                i{
+                    left: 80%;
+                }
+            }
+        }
+    }
+
+    &::before{
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0px;
+        right: 0;
+        height: 1px;
+        background-color: color-opacity($color-primary, 0.3);
+    }
+}
+
+.owl-carousel{
+
+    .owl-nav{
+
+        .owl-prev{
+            @extend .default-transition;
+            margin-left: 10px;
+            margin-right: 10px;
+            font-size: 25px;
+        }
+
+        .owl-next{
+            @extend .default-transition;
+            margin-left: 10px;
+            margin-right: 10px;
+            font-size: 25px;
+        }
+    }
+
+    .owl-dots{
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+
+        .owl-dot{
+            @extend .default-transition;
+            margin-left: 10px;
+            margin-right: 10px;
+            font-size: 25px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: color-opacity(rgb(129, 129, 129));
+
+            &:focus{
+                outline: none;
+            }
+        }
+
+        .owl-dot.active{
+            background-color:$color-primary; 
+        }
+    }
+
+    .item{
+        @extend .default-transition;
+
+        img{
+            @extend .default-transition;
+        }
+
+        .teachers-social-account{
+            @extend .default-transition;
+        }
+    }
+}
+
+#teachers{
+
+    .owl-carousel{
+
+        .item{
+            position: relative;
+            opacity: 0.2;
+            transform: scale3d(0.8, 0.8, 1);
+
+            .teachers-social-accounts {
+                @extend .default-transition;
+                position: absolute;
+                bottom: -20px;
+                left: 0;
+                right: 0;
+                text-align: center;
+                color: $color-white;
+
+                i{
+                    @extend .default-transition;
+                    opacity: 0;
+                    font-size: 24px;
+                    margin: 0 5px;
+                    width: 48px;
+                    height: 48px;
+                    background-color: color-opacity(black, 0.3);
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                }
+
+                a{
+                    color:inherit;
+
+                    &:hover{
+                        text-decoration: none;
+
+                        .fa-facebook-f {
+                            color: rgb(66, 103, 178);
+                        }
+
+                        .fa-twitter{
+                            color: rgb(29, 161, 242);
+                        }
+
+                        .fa-instagram{
+                            color: rgb(188, 42, 141);
+                        }
+
+                        i{
+                            background-color: $color-primary;
+                        }
+                    }
+                }
+            }
+
+            &:hover{
+
+                img{
+                    transform: scale(1.1);
+                }
+                
+                .teachers-social-accounts {
+                    bottom: 20px;
+                }
+
+                .teachers-social-accounts {
+
+                    i{
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .owl-article{
+                margin: -23px auto 0;
+                display: table;
+                width: auto;
+                background: $color-primary;
+                padding: 9px 35px;
+                border-radius: 12px;
+                text-align: center;
+                box-shadow: 0 9px 18px color-opacity(black, 0.12), 0 5px 7px color-opacity(black, 0.05);
+                color: $color-white !important;
+            }
+        }
+
+        .owl-item.active.center{
+
+            .item{
+                opacity: 1;
+                transform: scale3d(1, 1, 1);
+            }
+        }
+
+        .owl-stage-outer{
+            transform: translate3d(0, 0, 0);
+            padding: 20px 0;
+        }
+
+        .owl-nav{
+            display: none;
+        }
+    }
+
+    .shadow-effect {
+        background: $color-white;
+        padding: 20px;
+        border-radius: 4px;
+        text-align: justify;
+        border: 1px solid #ececec;
+        box-shadow: 0 10px 38px color-opacity(black, 0.1), 0 15px 12px color-opacity(black, 0.02);
+
+        p{
+            font-family: inherit;
+            font-size: 17px;
+            line-height: 1.5;
+            margin: 0 0 17px 0;
+            font-weight: 300;
+        }
+    }
+}
+
+#registration{
+
+    background:{
+        image: url("../images/registration-bg.jpg");
+        repeat: no-repeat;
+        attachment: fixed;
+    }
+
+    .registration-form{
+        background-color: $color-white;
+        color: $color-black;
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 0 12px 0 color-opacity(white,.1), 0 10px 30px 0 color-opacity(white,.1);
+
+        .registration-form-content{
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            padding: 40px 30px 0;
+
+            @include max-lg{
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+            
+            @include max-md{
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+
+            @include max-sm{
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+        }
+
+        .registration-main-form{
+            padding: 20px 30px 40px;
+
+            @include max-lg{
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            @include max-md{
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+
+            @include max-sm{
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .form-group{
+                margin-bottom: 1.5rem;
+            }
+
+            .form-control{
+                border-bottom: 1px solid color-opacity(black, 0.3);
+            }
+
+            input{
+                border: none;
+                border-radius: 0;
+                background-color: transparent;
+            }
+
+            .default-btn{
+                padding: 12px 50px;
+                border-radius: 2rem;
+            }
+        }
+    }
+}
+
+#people{
+
+    img{
+        border: 3px dashed transparent;
+        border-radius: 50%;
+        position: relative;
+        width: 100px;
+        height: 100px;
+        animation: 1.3s cubic-bezier(0.8, 0, 0, 1) 0s normal none infinite running pulse;
+        box-shadow: 0 0 0 0 rgba(255, 179, 0, 0.302);
+    }
+
+    .owl-dots{
+        display: none;
+    }
+
+    .owl-nav{
+
+        .owl-prev{
+            position: absolute;
+            top: 50%;
+            left: 0px;
+            margin: 0;
+            font-size: 40px;
+
+            &:focus{
+                outline:none;
+            }
+
+            @include min-xl{
+                opacity: 0.3;
+                transform: translate3d(-25px, 0, 0);
+            }
+        }
+
+        .owl-next{
+            position: absolute;
+            top: 50%;
+            right: 0px;
+            margin: 0;
+            font-size: 40px;
+
+            &:focus{
+                outline:none;
+            }
+
+            @include min-xl{
+                opacity: 0.3;
+                transform: translate3d(25px, 0, 0);
+            }
+            
+        }
+    }
+
+    @include min-xl{
+
+        .owl-carousel{
+
+            &:hover{
+
+                .owl-prev{
+                    transform: translate3d(0, 0, 0);
+                    opacity: 1;
+                }
+
+                .owl-next{
+                    transform: translate3d(0, 0, 0);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+#contact-us{
+
+    .contact-title {
+        background-color: rgb(255, 182, 10);
+        padding: 50px 0 80px;
+    }
+
+    .contact-page {
+        margin-top: -30px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35);
+        border-radius: 5px;
+
+        .default-btn{
+
+            i{
+                top:50%;
+            }
+        }
+
+        @include min-md{
+
+            .parent-contact-form {
+                box-shadow: -10px 0px 10px 1px color-opacity(black, 0.1);
+            }
+        }
+    }
+}
+
+#instructor{
+
+    background :{
+        image: url("../images/new-york.png");
+        attachment: fixed;
+        position: center;
+        size: cover;
+    }
+
+    .instructor-bg-layer {
+        background-color: color-opacity($color-primary, 0.6);
+    }
+
+    .default-pad {
+        padding: 100px 0;
+    }
+
+    .default-btn {
+        position: relative;
+        background-color: $color-white;
+        color: $color-primary;
+        padding: 12px 25px;
+        z-index: 1;
+
+        &:hover{
+            color: $color-white;
+        }
+    }
+}
+
+footer{
+    background-color: rgb(17, 17, 17);
+
+    ul{
+        li{
+            a{
+                color:color-opacity($color-white, 0.7);
+
+                &:hover{
+                    color:$color-primary;
+                    text-decoration: none;
+                }
+            }
+
+            @include min-lg{
+                padding-left: 20px;
+                position: relative;
+
+                &::before {
+                    position: absolute;
+                    content: "";
+                    left: 0px;
+                    top: 9px;
+                    width: 7px;
+                    height: 7px;
+                    background-color: $color-primary;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+
+    .separater{
+
+        &::before {
+            left: 0;
+            transform: scale(1);
+            width: 50px;
+            bottom: -10px;
+        }
+    }
+}
+
+.copyright{
+    @extend footer;
+    
+    .container{
+        border-top: 1px solid color-opacity($color-white, 0.2);
+    }
+}

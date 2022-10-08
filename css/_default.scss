@@ -1,0 +1,106 @@
+.default-transition{
+    transition: all 500ms ease;
+}
+
+*::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}
+
+@font-face {
+    font-family: "Karla";
+    src: url("../fonts/Karla-VariableFont_wght.ttf");
+}
+
+.bg-warning {
+    background-color:$color-primary!important;
+}
+
+.text-warning {
+    color: $color-primary!important;
+}
+
+body,
+p {
+    font-family: "Karla", sans-serif;
+}
+
+.wow {
+    animation-delay: 300ms;
+}
+
+a {
+    @extend .default-transition;
+    color: $color-primary;
+
+    &:hover{
+        @extend a;
+    }
+
+}
+
+.form-control[type="submit"]:focus {
+    background-color: $color-primary;
+}
+
+.separater {
+    position: relative;
+}
+
+.separater::before {
+    position: absolute;
+    content: "";
+    width: 1px;
+    height: 2px;
+    background-color: $color-primary;
+    bottom: -15px;
+    left: 50%;
+    transform: scaleX(50);
+}
+
+.dropdown-toggle::after {
+    margin-bottom: -2px;
+}
+
+.contact-us .separater::before {
+    background-color: $color-white;
+}
+
+.default-pad {
+    padding: 70px 0;
+}
+
+.form-control {
+
+    &:focus{
+        border: 1px solid $color-primary;
+        outline: 0;
+        box-shadow: none;
+    }
+
+}
+
+@include max-sm{
+
+    .h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.25rem;
+    }
+
+
+    h5 {
+        font-size: 1.12rem;
+    }
+    
+}
